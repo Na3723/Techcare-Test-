@@ -22,14 +22,15 @@ fetchPatients().then(data => {
   document.getElementById("dia-level").textContent = latest.blood_pressure.diastolic.levels;
 
   // Vitals (FIXED)
-  document.querySelector("#resp h3").textContent =
-    `${latest.respiratory_rate.value} bpm`;
+document.getElementById("resp-val").textContent =
+  `${latest.respiratory_rate.value} bpm`;
 
-  document.querySelector("#temp h3").textContent =
-    `${latest.temperature.value} °F`;
+document.getElementById("temp-val").textContent =
+  `${latest.temperature.value} °F`;
 
-  document.querySelector("#heart h3").textContent =
-    `${latest.heart_rate.value} bpm`;
+document.getElementById("heart-val").textContent =
+  `${latest.heart_rate.value} bpm`;
+
 
   // Diagnostics Table
   const table = document.getElementById("diagnostics");
