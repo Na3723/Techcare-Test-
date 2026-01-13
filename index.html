@@ -1,67 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Tech.Care - Patient Dashboard</title>
+<meta charset="UTF-8">
+<title>Tech.Care – Patient Dashboard</title>
 
-  <link rel="stylesheet" href="css/style.css" />
+<link rel="stylesheet" href="css/style.css">
 
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-  <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-        crossorigin="anonymous" />
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      crossorigin="anonymous">
+
 </head>
-
 <body>
 
 <div id="app">
 
-  <!-- LEFT -->
-  <aside class="sidebar">
-    <h1 class="logo">Tech.Care</h1>
-    <h3>Patients</h3>
+<!-- LEFT SIDEBAR -->
+<aside class="sidebar">
+  <h1 class="logo">Tech.Care</h1>
+  <h3>Patients</h3>
 
-    <div class="patient active">
-      <img id="patient-photo">
-      <div>
-        <strong>Jessica Taylor</strong>
-        <small>Female, 28</small>
-      </div>
+  <div class="patient active">
+    <img id="patient-photo">
+    <div>
+      <strong>Jessica Taylor</strong>
+      <small>Female, 28</small>
     </div>
-  </aside>
+  </div>
+</aside>
 
-  <!-- CENTER -->
-  <main class="center">
 
-    <div class="card">
-      <h2>Diagnosis History</h2>
+<!-- CENTER -->
+<main class="center">
 
-      <div class="chart-box">
-        <canvas id="bpChart"></canvas>
-      </div>
+<div class="card">
+  <h2>Diagnosis History</h2>
 
-      <div class="bp-summary">
-        <div class="bp">
-          <span class="dot pink"></span>
-          <strong>Systolic</strong>
-          <h2 id="sys-val"></h2>
-          <small id="sys-level"></small>
-        </div>
+  <div class="chart-box">
+    <canvas id="bpChart"></canvas>
+  </div>
 
-        <div class="bp">
-          <span class="dot purple"></span>
-          <strong>Diastolic</strong>
-          <h2 id="dia-val"></h2>
-          <small id="dia-level"></small>
-        </div>
-      </div>
+  <div class="bp-summary">
+    <div class="bp">
+      <span class="dot pink"></span>
+      <strong>Systolic</strong>
+      <h2 id="sys-val">--</h2>
+      <small id="sys-level"></small>
     </div>
 
-   <div class="vitals">
+    <div class="bp">
+      <span class="dot purple"></span>
+      <strong>Diastolic</strong>
+      <h2 id="dia-val">--</h2>
+      <small id="dia-level"></small>
+    </div>
+  </div>
+</div>
+
+<!-- VITALS -->
+<div class="vitals">
 
   <div class="vital" id="resp">
-    <i class="fa-solid fa-lungs"></i>
+    <i class="fa-solid fa-wind"></i>
     <div>
       <small>Respiratory Rate</small>
       <h3 id="resp-val">-- bpm</h3>
@@ -72,12 +74,12 @@
     <i class="fa-solid fa-temperature-high"></i>
     <div>
       <small>Body Temperature</small>
-      <h3 id="temp-val">-- °C</h3>
+      <h3 id="temp-val">-- °F</h3>
     </div>
   </div>
 
   <div class="vital" id="heart">
-    <i class="fa-solid fa-heart-pulse"></i>
+    <i class="fa-solid fa-heart"></i>
     <div>
       <small>Heart Rate</small>
       <h3 id="heart-val">-- bpm</h3>
@@ -86,27 +88,28 @@
 
 </div>
 
+<div class="card">
+  <h2>Diagnostic List</h2>
+  <table id="diagnostics"></table>
+</div>
 
-    <div class="card">
-      <h2>Diagnostic List</h2>
-      <table id="diagnostics"></table>
-    </div>
+</main>
 
-  </main>
 
-  <!-- RIGHT -->
-  <aside class="profile">
-    <img id="profile-picture">
-    <h2 id="full-name"></h2>
+<!-- RIGHT PROFILE -->
+<aside class="profile">
+  <img id="profile-picture">
 
-    <p><i class="fa-solid fa-cake-candles"></i> <span id="dob"></span></p>
-    <p><i class="fa-solid fa-venus"></i> <span id="gender"></span></p>
-    <p><i class="fa-solid fa-phone"></i> <span id="phone"></span></p>
-    <p><i class="fa-solid fa-shield-heart"></i> <span id="insurance"></span></p>
+  <h2 id="full-name"></h2>
 
-    <h3>Lab Results</h3>
-    <ul id="labs"></ul>
-  </aside>
+  <p><i class="fa-solid fa-cake-candles"></i> <span id="dob"></span></p>
+  <p><i class="fa-solid fa-venus"></i> <span id="gender"></span></p>
+  <p><i class="fa-solid fa-phone"></i> <span id="phone"></span></p>
+  <p><i class="fa-solid fa-shield-halved"></i> <span id="insurance"></span></p>
+
+  <h3>Lab Results</h3>
+  <ul id="labs"></ul>
+</aside>
 
 </div>
 
