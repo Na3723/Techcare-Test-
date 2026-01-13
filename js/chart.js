@@ -31,7 +31,7 @@ function renderChart() {
       ],
     },
     options: {
-      responsive: false,   // 🔒 THIS FIXES THE DISAPPEARING
+      responsive: true,   // 🔒 THIS FIXES THE DISAPPEARING
       maintainAspectRatio: false,
       plugins: {
         legend: {
