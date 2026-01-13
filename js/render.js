@@ -10,6 +10,19 @@ fetchPatients().then(data => {
 
   const latest = j.diagnosis_history[0];
 
+  document.getElementById("sys-val").textContent =
+  latest.blood_pressure.systolic.value;
+
+document.getElementById("sys-level").textContent =
+  latest.blood_pressure.systolic.levels;
+
+document.getElementById("dia-val").textContent =
+  latest.blood_pressure.diastolic.value;
+
+document.getElementById("dia-level").textContent =
+  latest.blood_pressure.diastolic.levels;
+
+
   document.getElementById("resp").textContent =
     "Respiratory: " + latest.respiratory_rate.value + " bpm";
 

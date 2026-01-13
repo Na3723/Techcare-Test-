@@ -76,3 +76,35 @@ body {
   border-radius: 50%;
   object-fit: cover;
 }
+
+.bp-summary {
+  display: flex;
+  gap: 40px;
+  margin-top: 10px;
+}
+
+.bp {
+  display: flex;
+  flex-direction: column;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-bottom: 5px;
+}
+
+.pink { background: #ff6b9a; }
+.purple { background: #6c5ce7; }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+td {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+}
