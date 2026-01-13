@@ -67,12 +67,13 @@ body {
 }
 
 .chart-box {
-  height: 300px;
-  min-height: 300px;
-  position: relative;
+  height: 280px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: var(--lavender-bg);
-  padding: 20px;
   border-radius: 18px;
+  padding: 16px;
 }
 
 
@@ -103,10 +104,12 @@ body {
 
 /* VITALS */
 .vitals {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 24px;
   margin-bottom: 24px;
 }
+
 
 .vital {
   flex: 1;
@@ -116,6 +119,7 @@ body {
   box-shadow: 0 10px 40px rgba(0,0,0,0.05);
   font-size: 18px;
   font-weight: 600;
+  height: 110px;
 }
 
 /* TABLE */
@@ -183,10 +187,13 @@ td {
 
 
 .bp-summary {
-  background: #fff;
-  border-radius: 18px;
-  padding: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
 }
+
 
 .vital {
   background: linear-gradient(180deg, #fff, #fafafa);
@@ -211,3 +218,70 @@ table th {
 }
 
 
+.center {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.card:first-of-type {
+  display: grid;
+  grid-template-rows: auto auto auto;
+  gap: 24px;
+}
+table th,
+table td {
+  padding: 16px 12px;
+}
+
+table th {
+  font-size: 14px;
+  color: var(--text);
+}
+
+table td {
+  font-size: 14px;
+}
+:root {
+  --primary-blue: #0E8AF0;
+
+  --lavender-bg: #F3F1FD;
+
+  --pink: #FF6B8A;
+  --light-pink-bg: #FFF0F4;
+
+  --purple: #7B6CF6;
+
+  --light-blue-bg: #EAF4FF;
+
+  --green: #20C997;
+  --orange: #F4A261;
+
+  --text: #1F2937;
+  --muted-text: #6B7280;
+
+  --card-bg: #FFFFFF;
+  --page-bg: #F8FAFC;
+
+  --border: #E5E7EB;
+}
+.vital.respiratory {
+  background: var(--light-blue-bg);
+}
+
+.vital.temperature {
+  background: var(--light-pink-bg);
+}
+
+.vital.heart {
+  background: #F2EEFF;
+}
+.status.cured {
+  color: var(--green);
+}
+
+.status.observation {
+  color: var(--orange);
+}
+
+.status.inactive {
+  color: var(--muted-text);
+}

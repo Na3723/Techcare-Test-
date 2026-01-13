@@ -13,7 +13,7 @@ function renderChart() {
         {
           label: "Systolic",
           data: systolic,
-          borderColor: "#ff6b9a",
+          borderColor: "#ff6b8a",
           backgroundColor: "rgba(255,107,154,0.25)",
           tension: 0.4,
           pointRadius: 4,
@@ -22,7 +22,7 @@ function renderChart() {
         {
           label: "Diastolic",
           data: diastolic,
-          borderColor: "#6c5ce7",
+          borderColor: "#7B6CF6",
           backgroundColor: "rgba(108,92,231,0.25)",
           tension: 0.4,
           pointRadius: 4,
