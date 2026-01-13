@@ -151,3 +151,31 @@ td {
   gap: 10px;
 }
 
+.vital {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.vital i {
+  font-size: 34px;
+  padding: 18px;
+  border-radius: 50%;
+  background: #f0f4ff;
+  color: var(--purple);
+}
+
+#resp i { background: #eaf9ff; color: #4cd1ff; }
+#temp i { background: #fff1f3; color: #ff6b9a; }
+#heart i { background: #f3edff; color: #6c5ce7; }
+
+.vital small {
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.vital h3 {
+  margin: 0;
+  font-size: 24px;
+}
+
