@@ -3,13 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <title>Tech.Care - Patient Dashboard</title>
+
   <link rel="stylesheet" href="css/style.css" />
+
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        crossorigin="anonymous" />
 </head>
+
 <body>
 
 <div id="app">
-  
+
   <!-- LEFT -->
   <aside class="sidebar">
     <h1 class="logo">Tech.Care</h1>
@@ -30,27 +37,25 @@
     <div class="card">
       <h2>Diagnosis History</h2>
 
-     <div class="chart-box">
-  <canvas id="bpChart"></canvas>
-</div>
+      <div class="chart-box">
+        <canvas id="bpChart"></canvas>
+      </div>
 
-<div class="bp-summary">
-  <div class="bp">
-    <span class="dot pink"></span>
-    <strong>Systolic</strong>
-    <h2 id="sys-val"></h2>
-    <small id="sys-level"></small>
-  </div>
+      <div class="bp-summary">
+        <div class="bp">
+          <span class="dot pink"></span>
+          <strong>Systolic</strong>
+          <h2 id="sys-val"></h2>
+          <small id="sys-level"></small>
+        </div>
 
-  <div class="bp">
-    <span class="dot purple"></span>
-    <strong>Diastolic</strong>
-    <h2 id="dia-val"></h2>
-    <small id="dia-level"></small>
-  </div>
-</div>
-
-
+        <div class="bp">
+          <span class="dot purple"></span>
+          <strong>Diastolic</strong>
+          <h2 id="dia-val"></h2>
+          <small id="dia-level"></small>
+        </div>
+      </div>
     </div>
 
     <div class="vitals">
@@ -71,10 +76,10 @@
     <img id="profile-picture">
     <h2 id="full-name"></h2>
 
-    <p id="dob"></p>
-    <p id="gender"></p>
-    <p id="phone"></p>
-    <p id="insurance"></p>
+    <p><i class="fa-solid fa-cake-candles"></i> <span id="dob"></span></p>
+    <p><i class="fa-solid fa-venus"></i> <span id="gender"></span></p>
+    <p><i class="fa-solid fa-phone"></i> <span id="phone"></span></p>
+    <p><i class="fa-solid fa-shield-heart"></i> <span id="insurance"></span></p>
 
     <h3>Lab Results</h3>
     <ul id="labs"></ul>
@@ -82,32 +87,9 @@
 
 </div>
 
-
-    <div class="main">
-      <div class="card profile">
-        <img id="profile-picture" />
-        <h2 id="full-name"></h2>
-        <p id="dob"></p>
-        <p id="gender"></p>
-        <p id="phone"></p>
-        <p id="insurance"></p>
-      </div>
-
-      <div class="card">
-        <canvas id="bpChart"></canvas>
-      </div>
-
-      <div class="vitals">
-        <div class="vital" id="heart"></div>
-        <div class="vital" id="resp"></div>
-        <div class="vital" id="temp"></div>
-      </div>
-    </div>
-  </div>
-
-  <script src="js/api.js"></script>
-  <script src="js/render.js"></script>
-  <script src="js/chart.js"></script>
+<script src="js/api.js"></script>
+<script src="js/render.js"></script>
+<script src="js/chart.js"></script>
 
 </body>
 </html>
