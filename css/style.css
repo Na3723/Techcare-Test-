@@ -1,17 +1,17 @@
 :root {
-  --page-bg: #F8FAFC;
-  --card-bg: #FFFFFF;
-  --border: #E5E7EB;
+  --bg: #f8fafc;
+  --card: #ffffff;
+  --border: #e5e7eb;
 
-  --text: #1F2937;
-  --muted: #6B7280;
+  --text: #1f2937;
+  --muted: #6b7280;
 
-  --pink: #FF6B8A;
-  --purple: #7B6CF6;
+  --pink: #ff6b8a;
+  --purple: #7b6cf6;
 
-  --lavender-bg: #F3F1FD;
-  --light-blue-bg: #EAF4FF;
-  --light-pink-bg: #FFF0F4;
+  --lavender: #f3f1fd;
+  --blue-soft: #eaf4ff;
+  --pink-soft: #fff0f4;
 }
 
 * {
@@ -21,23 +21,24 @@
 html, body {
   height: 100%;
   margin: 0;
-  font-family: "Segoe UI", sans-serif;
-  background: var(--page-bg);
+  overflow: hidden;
+  font-family: "Segoe UI", system-ui, sans-serif;
+  background: var(--bg);
   color: var(--text);
 }
 
 #app {
+  height: 100%;
   display: grid;
   grid-template-columns: 260px 1fr 320px;
   gap: 24px;
   padding: 24px;
-  height: 100%;
 }
 
 /* SIDEBAR */
 .sidebar {
-  background: var(--card-bg);
-  border-radius: 20px;
+  background: var(--card);
+  border-radius: 24px;
   padding: 24px;
   overflow-y: auto;
 }
@@ -45,40 +46,45 @@ html, body {
 .logo {
   font-size: 28px;
   font-weight: 800;
-  margin-bottom: 24px;
+  margin-bottom: 32px;
+}
+
+.sidebar-title {
+  margin-bottom: 16px;
 }
 
 .patient {
   display: flex;
   gap: 12px;
-  background: #E6FBF5;
   padding: 14px;
   border-radius: 16px;
-  align-items: center;
+  background: #e6fbf5;
 }
 
 .patient img {
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  object-fit: cover;
 }
 
 /* CENTER */
 .center {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
   overflow-y: auto;
+  padding-right: 8px;
 }
 
 .card {
-  background: var(--card-bg);
+  background: var(--card);
   border-radius: 24px;
   padding: 28px;
+  margin-bottom: 24px;
 }
 
-/* DIAGNOSIS */
+.card:last-child {
+  margin-bottom: 0;
+}
+
+/* CHART */
 .chart-row {
   display: grid;
   grid-template-columns: 2fr 1fr;
@@ -86,44 +92,43 @@ html, body {
 }
 
 .chart-box {
-  background: var(--lavender-bg);
+  background: var(--lavender);
   border-radius: 20px;
-  padding: 16px;
-  height: 260px;
+  padding: 20px;
 }
 
 .bp-summary {
   display: flex;
   flex-direction: column;
-  gap: 28px;
+  gap: 32px;
 }
 
 .bp strong {
   font-size: 32px;
 }
 
-/* DOTS */
 .dot {
   width: 10px;
   height: 10px;
   border-radius: 50%;
   display: inline-block;
-  margin-right: 6px;
 }
-.pink { background: var(--pink); }
-.purple { background: var(--purple); }
+
+.dot.pink { background: var(--pink); }
+.dot.purple { background: var(--purple); }
 
 /* VITALS */
 .vitals {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
+  margin-bottom: 24px;
 }
 
 .vital {
-  background: var(--card-bg);
+  background: var(--card);
   border-radius: 20px;
-  padding: 20px;
+  padding: 24px;
   display: flex;
   gap: 16px;
   align-items: center;
@@ -136,17 +141,17 @@ html, body {
 }
 
 .respiratory i {
-  background: var(--light-blue-bg);
-  color: #0E8AF0;
+  background: var(--blue-soft);
+  color: #0e8af0;
 }
 
 .temperature i {
-  background: var(--light-pink-bg);
+  background: var(--pink-soft);
   color: var(--pink);
 }
 
 .heart i {
-  background: #F2EEFF;
+  background: #f2eeff;
   color: var(--purple);
 }
 
@@ -157,44 +162,41 @@ table {
 }
 
 th, td {
-  padding: 14px 0;
+  padding: 16px 0;
   border-bottom: 1px solid var(--border);
 }
 
 th {
-  font-size: 13px;
+  text-align: left;
   color: var(--muted);
+  font-weight: 600;
 }
 
 /* PROFILE */
 .profile {
-  background: var(--card-bg);
+  background: var(--card);
   border-radius: 24px;
   padding: 28px;
   overflow-y: auto;
 }
 
-.profile img {
+.profile-pic {
   width: 120px;
   height: 120px;
   border-radius: 50%;
-  display: block;
-  margin: 0 auto 16px;
   object-fit: cover;
+  margin-bottom: 16px;
 }
 
 .profile p {
   display: flex;
   gap: 8px;
   align-items: center;
+  color: var(--muted);
+}
+
+.muted {
+  color: var(--muted);
   font-size: 14px;
 }
 
-h2 {
-  font-size: 20px;
-  margin-bottom: 16px;
-}
-
-small {
-  color: var(--muted);
-}
