@@ -1,3 +1,48 @@
+:root {
+  --bg: #f5f8fb;
+  --card: #ffffff;
+  --border: #e4e9f0;
+  --text: #0a2540;
+  --muted: #6b7a90;
+  --pink: #ff6b9a;
+  --purple: #6c5ce7;
+  --blue: #4cd1ff;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+}
+
+.card,
+.sidebar,
+.profile,
+.vital {
+  background: var(--card);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+  border-radius: 20px;
+}
+
+.sidebar {
+  color: var(--muted);
+}
+
+.logo {
+  color: var(--text);
+}
+
+.patient {
+  background: #e6fbf5;
+}
+
+.vital {
+  font-size: 20px;
+}
+
+table td {
+  color: var(--muted);
+}
+
 body {
   margin: 0;
   font-family: Arial, sans-serif;
