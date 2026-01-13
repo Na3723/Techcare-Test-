@@ -67,7 +67,9 @@ body {
 }
 
 .chart-box {
-  height: 340px;
+  height: 300px;
+  min-height: 300px;
+  position: relative;
   background: var(--lavender-bg);
   padding: 20px;
   border-radius: 18px;

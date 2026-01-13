@@ -62,3 +62,5 @@ document.getElementById("heart-val").textContent =
   renderChart();
 });
 
+window.historyData = [...j.diagnosis_history].reverse();
+renderChart();
