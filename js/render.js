@@ -55,3 +55,4 @@ fetchPatients().then(data => {
   renderChart();
 });
 
+

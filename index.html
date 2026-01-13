@@ -3,40 +3,33 @@
 <head>
   <meta charset="UTF-8" />
   <title>Tech.Care Dashboard</title>
-
-  <link rel="stylesheet" href="css/style.css" />
-
+  <link rel="stylesheet" href="style.css" />
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
   />
-
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
   <div id="app">
-
     <!-- SIDEBAR -->
     <aside class="sidebar">
       <div class="logo">Tech.Care</div>
-
-      <h4 class="sidebar-title">Patients</h4>
-
-      <div class="patient active">
+      <h4>Patients</h4>
+      <div class="patient">
         <img id="patient-photo" />
         <div>
-          <strong>Jessica Taylor</strong>
+          <div>Jessica Taylor</div>
           <small>Female, 28</small>
         </div>
       </div>
     </aside>
 
-    <!-- CENTER CONTENT -->
+    <!-- CENTER -->
     <main class="center">
-
-      <!-- DIAGNOSIS HISTORY -->
-      <section class="card">
+      <!-- DIAGNOSIS -->
+      <section class="card diagnosis">
         <h2>Diagnosis History</h2>
 
         <div class="chart-row">
@@ -48,15 +41,15 @@
             <div class="bp">
               <span class="dot pink"></span>
               <small>Systolic</small>
-              <strong id="sys-val">—</strong>
-              <span class="muted" id="sys-level"></span>
+              <strong id="sys-val">160</strong>
+              <small>Higher than Average</small>
             </div>
 
             <div class="bp">
               <span class="dot purple"></span>
               <small>Diastolic</small>
-              <strong id="dia-val">—</strong>
-              <span class="muted" id="dia-level"></span>
+              <strong id="dia-val">78</strong>
+              <small>Lower than Average</small>
             </div>
           </div>
         </div>
@@ -68,8 +61,7 @@
           <i class="fa-solid fa-wind"></i>
           <div>
             <small>Respiratory Rate</small>
-            <h3 id="resp-val">—</h3>
-            <span class="muted">Normal</span>
+            <h3 id="resp-val">20 bpm</h3>
           </div>
         </div>
 
@@ -77,8 +69,7 @@
           <i class="fa-solid fa-temperature-half"></i>
           <div>
             <small>Temperature</small>
-            <h3 id="temp-val">—</h3>
-            <span class="muted">Normal</span>
+            <h3 id="temp-val">98.6 °F</h3>
           </div>
         </div>
 
@@ -86,45 +77,30 @@
           <i class="fa-solid fa-heart"></i>
           <div>
             <small>Heart Rate</small>
-            <h3 id="heart-val">—</h3>
-            <span class="muted">Lower than Average</span>
+            <h3 id="heart-val">78 bpm</h3>
           </div>
         </div>
       </section>
 
-      <!-- DIAGNOSTIC LIST -->
+      <!-- TABLE -->
       <section class="card">
         <h2>Diagnostic List</h2>
-
-        <table id="diagnostics">
-          <thead>
-            <tr>
-              <th>Problem</th>
-              <th>Description</th>
-              <th>Status</th>
-            </tr>
-          </thead>
-          <tbody></tbody>
-        </table>
+        <table id="diagnostics"></table>
       </section>
-
     </main>
 
     <!-- PROFILE -->
     <aside class="profile">
-      <img id="profile-picture" class="profile-pic" />
-
+      <img id="profile-picture" />
       <h2 id="full-name"></h2>
-
-      <p><i class="fa-solid fa-cake-candles"></i> <span id="dob"></span></p>
-      <p><i class="fa-solid fa-venus"></i> <span id="gender"></span></p>
-      <p><i class="fa-solid fa-phone"></i> <span id="phone"></span></p>
-      <p><i class="fa-solid fa-shield"></i> <span id="insurance"></span></p>
+      <p>📅 <span id="dob"></span></p>
+      <p>♀ <span id="gender"></span></p>
+      <p>📞 <span id="phone"></span></p>
+      <p>🛡 <span id="insurance"></span></p>
 
       <h3>Lab Results</h3>
       <ul id="labs"></ul>
     </aside>
-
   </div>
 
   <script src="api.js"></script>
