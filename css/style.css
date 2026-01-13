@@ -1,6 +1,9 @@
 /* =====================
    COLOR SYSTEM (SINGLE SOURCE OF TRUTH)
 ===================== */
+body {
+  background: red !important;
+}
 :root {
   --page-bg: #F8FAFC;
   --card-bg: #FFFFFF;
