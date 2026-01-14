@@ -143,7 +143,7 @@ html, body {
   flex-direction: column;
   background: var(--lavender-bg);
   border-radius: 20px;
-  padding: 16px 20px 20px;  /* reduce top padding */
+  padding: 16px 20px 28px;  /* reduce top padding */
 }
 
 /* Chart + stats layout */
@@ -155,7 +155,7 @@ html, body {
 }
 
 .bp-chart {
-  height: 220px; 
+  height: 250px; 
   margin-top: 4px;
 }
 
