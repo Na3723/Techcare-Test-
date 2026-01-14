@@ -30,21 +30,24 @@ fetchPatients().then(data => {
   document.getElementById("heart-val").textContent =
     `${latest.heart_rate.value} bpm`;
 
-  // DIAGNOSTIC LIST
-  const tbody = document.getElementById("diagnostics");
-  tbody.innerHTML = "";
+const diagnosticsEl = document.getElementById("diagnostics");
+diagnosticsEl.innerHTML = "";
 
-  j.diagnostic_list.forEach(d => {
-    const statusClass = d.status.toLowerCase().split(" ")[0];
+diagnostics.forEach(item => {
+  const row = document.createElement("div");
+  row.className = "diagnostic-row";
 
-    tbody.innerHTML += `
-      <tr>
-        <td>${d.name}</td>
-        <td>${d.description}</td>
-        <td class="status ${statusClass}">${d.status}</td>
-      </tr>
-    `;
-  });
+  row.innerHTML = `
+    <span>${item.name}</span>
+    <span>${item.description}</span>
+    <span class="status ${item.statusClass}">
+      ${item.status}
+    </span>
+  `;
+
+  diagnosticsEl.appendChild(row);
+});
+
 
   // LAB RESULTS
   const labs = document.getElementById("labs");

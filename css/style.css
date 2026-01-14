@@ -304,11 +304,11 @@ html, body {
 /* ================= TOP NAV ================= */
 
 .topbar {
+  display: grid;
   background: var(--card-bg);
   padding: 16px 32px;
-  display: flex;
+  grid-template-columns: auto 1fr auto;
   align-items: center;
-  gap: 32px;
   border-bottom: 1px solid var(--border);
 }
 
@@ -319,7 +319,8 @@ html, body {
 
 .topbar-nav {
   display: flex;
-  gap: 24px;
+  gap: 28px;
+  justify-content: center;
 }
 
 .topbar-nav .nav-item {
@@ -337,4 +338,9 @@ html, body {
   background: #E6FBF5;
   color: var(--text);
   font-weight: 600;
+}
+
+.topbar-left .brand {
+  font-size: 22px;
+  font-weight: 800;
 }
