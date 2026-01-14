@@ -10,6 +10,19 @@ fetchPatients().then(data => {
   document.getElementById("phone").textContent = j.phone_number;
   document.getElementById("insurance").textContent = j.insurance_type;
 
+  /* ================= DOCTOR PROFILE (STATIC DATA, JS-RENDERED) ================= */
+
+const doctor = {
+  name: "Dr. Jose Simmons",
+  role: "General Practitioner",
+  photo: "https://fedskillstest.ct.digital/doctor.png"
+};
+
+document.getElementById("doctor-photo").src = doctor.photo;
+document.getElementById("doctor-name").textContent = doctor.name;
+document.getElementById("doctor-role").textContent = doctor.role;
+
+
   /* LATEST DIAGNOSIS */
   const latest = j.diagnosis_history[0];
 
