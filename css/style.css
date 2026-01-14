@@ -269,8 +269,8 @@ html, body {
   font-size: 13px;
   font-weight: 600;
   color: var(--muted-text);
-  margin-bottom: 12px;
-  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-top: 15px;
 }
 
 .table-scroll {
