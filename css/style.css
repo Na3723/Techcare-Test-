@@ -15,24 +15,34 @@
   --lavender-bg: #F3F1FD;
 }
 
-* { box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+}
 
-html, body {
+html,
+body {
   margin: 0;
   font-family: "Segoe UI", Arial, sans-serif;
   background: var(--page-bg);
   color: var(--text);
 }
 
+/* ================= APP LAYOUT ================= */
+
 #app {
-   display: grid;
+  display: grid;
   grid-template-columns: 260px 1fr 320px;
   gap: 24px;
-
   padding: 0 24px 24px;
-  min-height: calc(100vh - 72px); /* header height */
+  min-height: calc(100vh - 72px);
 }
 
+.card {
+  background: var(--card-bg);
+  border-radius: 24px;
+  padding: 28px;
+  margin-bottom: 24px;
+}
 
 /* ================= SIDEBAR ================= */
 
@@ -44,9 +54,8 @@ html, body {
   flex-direction: column;
 }
 
-/* Brand */
 .brand {
-  background: #ffffff;
+  background: #fff;
   padding: 16px 20px;
   border-radius: 14px;
   font-size: 22px;
@@ -54,7 +63,12 @@ html, body {
   margin-bottom: 28px;
 }
 
-/* Navigation */
+.sidebar-title {
+  font-size: 14px;
+  color: var(--muted-text);
+  margin-bottom: 12px;
+}
+
 .nav {
   display: flex;
   flex-direction: column;
@@ -68,27 +82,19 @@ html, body {
   gap: 10px;
   padding: 12px 14px;
   border-radius: 12px;
-  color: var(--text);
-  text-decoration: none;
   font-size: 14px;
-}
-
-.nav-item i {
   color: var(--muted-text);
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .nav-item.active {
   background: #E6FBF5;
+  color: var(--text);
   font-weight: 600;
 }
 
-.sidebar-title {
-  font-size: 14px;
-  color: var(--muted-text);
-  margin-bottom: 12px;
-}
-
-/* Patient card */
+/* Patient */
 .patient {
   background: #E6FBF5;
   padding: 16px;
@@ -104,49 +110,79 @@ html, body {
   border-radius: 50%;
 }
 
-.patient-info strong {
-  font-size: 14px;
-  white-space: nowrap;
-}
+/* ================= TOPBAR ================= */
 
-/* ================= CENTER ================= */
-
-.center {
-  overflow: visible;
-}
-
-/* Card */
-.card {
+.topbar {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  padding: 16px 28px;
+  margin: 24px;
   background: var(--card-bg);
-  border-radius: 24px;
-  padding: 28px;
-  margin-bottom: 24px;
+  border-radius: 20px;
 }
 
-/* Diagnosis section */
-.diagnosis-wrap {
-  border-radius: 20px;
-  padding: 24px;
+.topbar-nav {
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+}
+
+.topbar-right,
+.topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Doctor */
+.doctor-profile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.doctor-profile img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.doctor-info {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+/* ================= DIAGNOSIS ================= */
+
+.card.diagnosis {
+  padding-top: 16px;
 }
 
 .card.diagnosis h2 {
-  margin-bottom: 8px;  
+  margin-bottom: 8px;
 }
 
-.card.diagnosis {
-  padding-top: 16px;     /* reduces white gap at top */
+.diagnosis-wrap {
+  padding: 24px;
+  border-radius: 20px;
 }
 
-/* BP CARD */
+/* ================= BP CARD ================= */
+
 .bp-card {
-  display: flex;
-  flex-direction: column;
   background: var(--lavender-bg);
   border-radius: 20px;
-  padding: 16px 20px 32px;  /* reduce top padding */
+  padding: 16px 20px 32px;
 }
 
-/* Chart + stats layout */
+.bp-header {
+  font-size: 18px;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
 .bp-layout {
   display: grid;
   grid-template-columns: 2fr 1fr;
@@ -155,39 +191,27 @@ html, body {
 }
 
 .bp-chart {
-  height: 270px; 
-  margin-top: 12px;
+  height: 270px;
 }
 
-/* Chart sizing */
 .bp-chart canvas {
   width: 100% !important;
   height: 260px !important;
-  margin-top: 0;
 }
 
-/* BP summary */
 .bp-summary {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
-.bp-summary h2 {
-  font-size: 12px;   /* increase from ~24px */
-  font-weight: 400;
-  margin: 4px 0;
-}
-
 .bp {
-  line-height: 1.15; /* ⬅ tighter vertical rhythm */
+  line-height: 1.15;
 }
 
 .bp strong {
-  font-weight: 700;
   font-size: 14px;
-  margin-bottom: 2px;
-  display: inline-block;
+  font-weight: 700;
 }
 
 .bp h2 {
@@ -199,13 +223,6 @@ html, body {
   height: 1px;
   background: var(--border);
 }
-
-.bp-header {
-  font-size: 18px;     /* bigger than S/D labels */
-  font-weight: 800;   /* bold */
-  margin-bottom: 8px; /* tighter spacing */
-}
-
 
 .dot {
   width: 10px;
@@ -228,25 +245,33 @@ html, body {
 }
 
 .vital {
-  display: flex;
-  align-items: flex-start;
-  gap: 8px;
   padding: 22px;
   border-radius: 20px;
+  display: flex;
   flex-direction: column;
+  gap: 8px;
 }
-
-.vital-status {
-  margin-top: auto;     /* ⬅ pushes to bottom */
-  font-size: 12px;
-  color: var(--muted-text);
-}
-
 
 .vital i {
   font-size: 34px;
   padding: 12px;
   border-radius: 50%;
+}
+
+.vital h3 {
+  font-size: 28px;
+  margin: 0;
+}
+
+.vital small {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.vital-status {
+  margin-top: auto;
+  font-size: 12px;
+  color: var(--muted-text);
 }
 
 .vital.respiratory { background: #EAF4FF; }
@@ -260,35 +285,31 @@ html, body {
 
 /* ================= DIAGNOSTIC LIST ================= */
 
-.diagnostic-header {
+.diagnostic-header,
+.diagnostic-row {
   display: grid;
   grid-template-columns: 1.5fr 2fr 1fr;
+  padding: 14px 16px;
+}
+
+.diagnostic-header {
   background: #F6F7F9;
-  padding: 12px 16px;
-  border-radius: 12px;
   font-size: 13px;
   font-weight: 600;
   color: var(--muted-text);
-  margin-bottom: 5px;
-  margin-top: 25px;
+  border-radius: 12px;
+  margin: 25px 0 5px;
+}
+
+.diagnostic-row {
+  border-bottom: 1px solid var(--border);
+  font-size: 14px;
 }
 
 .table-scroll {
   max-height: 220px;
   overflow-y: auto;
 }
-
-.diagnostic-row {
-  display: grid;
-  grid-template-columns: 1.5fr 2fr 1fr;
-  padding: 14px 16px;
-  border-bottom: 1px solid var(--border);
-  font-size: 14px;
-}
-
-.status.cured { color: #22C55E; }
-.status.under { color: var(--orange); }
-.status.active { color: var(--pink); }
 
 /* ================= PROFILE ================= */
 
@@ -313,11 +334,10 @@ html, body {
 .profile-details p {
   display: flex;
   gap: 8px;
-  color: var(--muted-text);
   font-size: 14px;
+  color: var(--muted-text);
 }
 
-/* Button */
 .show-btn {
   margin: 16px auto 24px;
   padding: 12px 18px;
@@ -328,7 +348,7 @@ html, body {
   cursor: pointer;
 }
 
-/* ================= LAB RESULTS ================= */
+/* ================= LABS ================= */
 
 .labs {
   max-height: 360px;
@@ -345,143 +365,4 @@ html, body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-/* ================= TOP NAV ================= */
-
-.topbar {
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  align-items: center;
-
-  padding: 12px 24px;     /* ⬅ reduced vertical padding */
-  background: var(--card-bg);
-  border-radius: 20px;
-
-  margin: 16px 24px 8px; /* ⬅ small bottom margin only */
-}
-
-
-.topbar .brand {
-  font-size: 22px;
-  font-weight: 800;
-}
-
-.topbar-nav {
-  display: flex;
-  gap: 28px;
-  justify-content: center;
-}
-
-.topbar-nav .nav-item {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  text-decoration: none;
-  color: var(--muted-text);
-  font-size: 14px;
-  padding: 8px 12px;
-  border-radius: 10px;
-}
-
-.topbar-nav .nav-item.active {
-  background: #E6FBF5;
-  color: var(--text);
-  font-weight: 600;
-}
-
-.topbar-left .brand {
-  font-size: 22px;
-  font-weight: 800;
-}
-/* ================= TOP BAR ================= */
-
-.topbar {
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  align-items: center;
-  padding: 16px 28px;
-  background: var(--card-bg);
-  border-radius: 20px;
-  margin: 24px;
-}
-
-.topbar-left .brand {
-  font-size: 22px;
-  font-weight: 800;
-}
-
-.topbar-nav {
-  display: flex;
-  justify-content: center;
-  gap: 28px;
-}
-
-.nav-item {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--muted-text);
-  cursor: pointer;
-}
-
-.nav-item.active {
-  color: var(--text);
-}
-
-.topbar-right {
-  display: flex;
-  align-items: center;
-  gap: 24px;
-}
-
-/* Doctor profile */
-.doctor-profile {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.doctor-profile img {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-}
-
-.doctor-info {
-  display: flex;
-  flex-direction: column;
-  line-height: 1.2;
-}
-
-.doctor-info strong {
-  font-size: 14px;
-}
-
-.doctor-info small {
-  font-size: 12px;
-  color: var(--muted-text);
-}
-
-/* Icons */
-.topbar-actions {
-  display: flex;
-  gap: 16px;
-  font-size: 16px;
-  color: var(--muted-text);
-  cursor: pointer;
-}
-
-.vital h3 {
-  font-size: 28px;    /* bigger than BP numbers */
-  font-weight: 700;
-  margin: 0;
-}
-
-.vital small {
-  font-size: 14px;
-  font-weight: 600;
-  margin-bottom: 2px;
-  display: block;
 }
