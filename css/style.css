@@ -270,7 +270,7 @@ html, body {
   font-weight: 600;
   color: var(--muted-text);
   margin-bottom: 12px;
-  margin-top: 12px;
+  margin-top: 20px;
 }
 
 .table-scroll {
