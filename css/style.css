@@ -179,13 +179,19 @@ html, body {
   margin: 4px 0;
 }
 
+.bp {
+  line-height: 1.15; /* ⬅ tighter vertical rhythm */
+}
+
 .bp strong {
   font-weight: 700;
   font-size: 14px;
+  margin-bottom: 2px;
+  display: inline-block;
 }
 
 .bp h2 {
-  margin: 4px 0;
+  margin: 2px 0;
   font-size: 32px;
 }
 
@@ -215,23 +221,31 @@ html, body {
 /* ================= VITALS ================= */
 
 .vitals {
-  margin-top: 24px;
+  margin-top: 16px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  gap: 16px;
 }
 
 .vital {
   display: flex;
-  align-items: center;
-  gap: 12px;
+  align-items: flex-start;
+  gap: 8px;
   padding: 22px;
   border-radius: 20px;
+  flex-direction: column;
 }
+
+.vital-status {
+  margin-top: auto;     /* ⬅ pushes to bottom */
+  font-size: 12px;
+  color: var(--muted-text);
+}
+
 
 .vital i {
   font-size: 26px;
-  padding: 14px;
+  padding: 12px;
   border-radius: 50%;
 }
 
@@ -461,7 +475,7 @@ html, body {
 .vital h3 {
   font-size: 28px;    /* bigger than BP numbers */
   font-weight: 700;
-  margin: 2px 0 0;
+  margin: 0;
 }
 
 .vital small {
