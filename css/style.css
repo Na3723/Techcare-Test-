@@ -129,13 +129,21 @@ html, body {
   padding: 24px;
 }
 
+.card.diagnosis h2 {
+  margin-bottom: 12px;   /* was likely 20–24px */
+}
+
+.card.diagnosis {
+  padding-top: 16px;     /* reduces white gap at top */
+}
+
 /* BP CARD */
 .bp-card {
   display: flex;
   flex-direction: column;
   background: var(--lavender-bg);
   border-radius: 20px;
-  padding: 20px;
+  padding: 16px 20px 20px;  /* reduce top padding */
 }
 
 /* Chart + stats layout */
@@ -147,13 +155,15 @@ html, body {
 }
 
 .bp-chart {
-  height: 240px; 
+  height: 220px; 
+  margin-top: 4px;
 }
 
 /* Chart sizing */
 .bp-chart canvas {
   width: 100% !important;
   height: 260px !important;
+  margin-top: 0;
 }
 
 /* BP summary */
@@ -161,6 +171,12 @@ html, body {
   display: flex;
   flex-direction: column;
   gap: 20px;
+}
+
+.bp-summary h2 {
+  font-size: 32px;   /* increase from ~24px */
+  font-weight: 700;
+  margin: 6px 0;
 }
 
 .bp strong {
@@ -177,6 +193,13 @@ html, body {
   height: 1px;
   background: var(--border);
 }
+
+.bp-header {
+  font-size: 16px;     /* bigger than S/D labels */
+  font-weight: 700;   /* bold */
+  margin-bottom: 6px; /* tighter spacing */
+}
+
 
 .dot {
   width: 10px;
