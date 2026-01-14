@@ -485,6 +485,3 @@ html, body {
   margin-bottom: 2px;
   display: block;
 }
-#sys-val {
-  color: var(--pink); /* ⬅ true pink */
-}
