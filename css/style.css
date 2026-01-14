@@ -131,7 +131,6 @@ html, body {
 
 .card.diagnosis h2 {
   margin-bottom: 8px;  
-  margin-top: 0; /* was likely 20–24px */
 }
 
 .card.diagnosis {
