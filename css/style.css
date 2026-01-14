@@ -344,3 +344,82 @@ html, body {
   font-size: 22px;
   font-weight: 800;
 }
+/* ================= TOP BAR ================= */
+
+.topbar {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  padding: 16px 28px;
+  background: var(--card-bg);
+  border-radius: 20px;
+  margin: 24px;
+}
+
+.topbar-left .brand {
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.topbar-nav {
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--muted-text);
+  cursor: pointer;
+}
+
+.nav-item.active {
+  color: var(--text);
+}
+
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+/* Doctor profile */
+.doctor-profile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.doctor-profile img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.doctor-info {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.doctor-info strong {
+  font-size: 14px;
+}
+
+.doctor-info small {
+  font-size: 12px;
+  color: var(--muted-text);
+}
+
+/* Icons */
+.topbar-actions {
+  display: flex;
+  gap: 16px;
+  font-size: 16px;
+  color: var(--muted-text);
+  cursor: pointer;
+}
