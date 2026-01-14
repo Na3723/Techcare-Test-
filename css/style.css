@@ -130,7 +130,8 @@ html, body {
 }
 
 .card.diagnosis h2 {
-  margin-bottom: 12px;   /* was likely 20–24px */
+  margin-bottom: 8px;  
+  margin-top: 0; /* was likely 20–24px */
 }
 
 .card.diagnosis {
@@ -244,7 +245,7 @@ html, body {
 
 
 .vital i {
-  font-size: 26px;
+  font-size: 34px;
   padding: 12px;
   border-radius: 50%;
 }
@@ -270,10 +271,11 @@ html, body {
   font-weight: 600;
   color: var(--muted-text);
   margin-bottom: 12px;
+  margin-top: -4px;
 }
 
 .table-scroll {
-  max-height: 260px;
+  max-height: 220px;
   overflow-y: auto;
 }
 
@@ -330,7 +332,7 @@ html, body {
 /* ================= LAB RESULTS ================= */
 
 .labs {
-  max-height: 420px;
+  max-height: 360px;
   overflow-y: auto;
   display: flex;
   flex-direction: column;
