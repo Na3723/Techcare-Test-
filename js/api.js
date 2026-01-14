@@ -9,9 +9,6 @@ async function fetchPatients() {
     },
   });
 
-  if (!res.ok) {
-    throw new Error("Failed to fetch patient data");
-  }
-
+  if (!res.ok) throw new Error("Failed to fetch patient data");
   return res.json();
 }

@@ -11,33 +11,26 @@ fetchPatients().then(data => {
 
   const latest = j.diagnosis_history[0];
 
-  document.getElementById("sys-val").textContent = latest.blood_pressure.systolic.value;
-  document.getElementById("sys-level").textContent = latest.blood_pressure.systolic.levels;
-  document.getElementById("dia-val").textContent = latest.blood_pressure.diastolic.value;
-  document.getElementById("dia-level").textContent = latest.blood_pressure.diastolic.levels;
+  sys-val.textContent = latest.blood_pressure.systolic.value;
+  sys-level.textContent = latest.blood_pressure.systolic.levels;
+  dia-val.textContent = latest.blood_pressure.diastolic.value;
+  dia-level.textContent = latest.blood_pressure.diastolic.levels;
 
-  document.getElementById("resp-val").textContent = `${latest.respiratory_rate.value} bpm`;
-  document.getElementById("temp-val").textContent = `${latest.temperature.value} °F`;
-  document.getElementById("heart-val").textContent = `${latest.heart_rate.value} bpm`;
+  resp-val.textContent = `${latest.respiratory_rate.value} bpm`;
+  temp-val.textContent = `${latest.temperature.value} °F`;
+  heart-val.textContent = `${latest.heart_rate.value} bpm`;
 
-  const table = document.getElementById("diagnostics");
-  table.innerHTML = `
-    <tr><th>Problem</th><th>Description</th><th>Status</th></tr>
-  `;
-
-  [...j.diagnostic_list,
-   { name: "Allergic Rhinitis", description: "Seasonal allergies causing nasal congestion", status: "Active" }
-  ].forEach(d => {
-    table.innerHTML += `
+  const tbody = document.getElementById("diagnostics");
+  j.diagnostic_list.forEach(d => {
+    tbody.innerHTML += `
       <tr>
         <td>${d.name}</td>
         <td>${d.description}</td>
-        <td class="status ${d.status.toLowerCase()}">${d.status}</td>
+        <td class="status ${d.status.toLowerCase().split(" ")[0]}">${d.status}</td>
       </tr>`;
   });
 
-  const labs = document.getElementById("labs");
-  [...j.lab_results, "Urine Test"].forEach(l => {
+  j.lab_results.forEach(l => {
     labs.innerHTML += `
       <div class="lab-item">
         <span>${l}</span>
