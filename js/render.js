@@ -1,5 +1,7 @@
 fetchPatients().then(data => {
-  const patient = data.find(p => p.name === "Jessica Taylor");
+  const j = data.find(p => p.name === "Jessica Taylor");
+
+  /* ================= DOCTOR PROFILE ================= */
 
   const doctor = {
     name: "Dr. Jose Simmons",
@@ -11,46 +13,77 @@ fetchPatients().then(data => {
   document.getElementById("doctor-name").textContent = doctor.name;
   document.getElementById("doctor-role").textContent = doctor.role;
 
-  document.getElementById("patient-photo").src = patient.profile_picture;
-  document.getElementById("profile-picture").src = patient.profile_picture;
-  document.getElementById("full-name").textContent = patient.name;
-  document.getElementById("dob").textContent = patient.date_of_birth;
-  document.getElementById("gender").textContent = patient.gender;
-  document.getElementById("phone").textContent = patient.phone_number;
-  document.getElementById("insurance").textContent = patient.insurance_type;
+  /* ================= PATIENT PROFILE ================= */
 
-  const latest = patient.diagnosis_history[0];
+  document.getElementById("patient-photo").src = j.profile_picture;
+  document.getElementById("profile-picture").src = j.profile_picture;
+  document.getElementById("full-name").textContent = j.name;
+  document.getElementById("dob").textContent = j.date_of_birth;
+  document.getElementById("gender").textContent = j.gender;
+  document.getElementById("phone").textContent = j.phone_number;
+  document.getElementById("insurance").textContent = j.insurance_type;
 
-  sys-val.textContent = latest.blood_pressure.systolic.value;
-  sys-level.textContent = latest.blood_pressure.systolic.levels;
-  dia-val.textContent = latest.blood_pressure.diastolic.value;
-  dia-level.textContent = latest.blood_pressure.diastolic.levels;
+  /* ================= LATEST DIAGNOSIS ================= */
 
-  resp-val.textContent = `${latest.respiratory_rate.value} bpm`;
-  temp-val.textContent = `${latest.temperature.value} °F`;
-  heart-val.textContent = `${latest.heart_rate.value} bpm`;
+  const latest = j.diagnosis_history[0];
 
-  const diagnostics = document.getElementById("diagnostics");
-  diagnostics.innerHTML = "";
+  document.getElementById("sys-val").textContent =
+    latest.blood_pressure.systolic.value;
+  document.getElementById("sys-level").textContent =
+    latest.blood_pressure.systolic.levels;
 
-  [...patient.diagnostic_list, {
-    name: "Allergic Rhinitis",
-    description: "Seasonal allergies causing nasal congestion",
-    status: "Active"
-  }].forEach(d => {
-    diagnostics.innerHTML += `
-      <div class="diagnostic-row">
-        <span>${d.name}</span>
-        <span>${d.description}</span>
-        <span class="status ${d.status.toLowerCase().split(" ")[0]}">${d.status}</span>
-      </div>
+  document.getElementById("dia-val").textContent =
+    latest.blood_pressure.diastolic.value;
+  document.getElementById("dia-level").textContent =
+    latest.blood_pressure.diastolic.levels;
+
+  document.getElementById("resp-val").textContent =
+    `${latest.respiratory_rate.value} bpm`;
+  document.getElementById("temp-val").textContent =
+    `${latest.temperature.value} °F`;
+  document.getElementById("heart-val").textContent =
+    `${latest.heart_rate.value} bpm`;
+
+  /* ================= DIAGNOSTIC LIST ================= */
+
+  const diagnosticsEl = document.getElementById("diagnostics");
+  diagnosticsEl.innerHTML = "";
+
+  const extendedDiagnostics = [
+    ...j.diagnostic_list,
+    {
+      name: "Allergic Rhinitis",
+      description: "Seasonal allergies causing nasal congestion",
+      status: "Active"
+    }
+  ];
+
+  extendedDiagnostics.forEach(d => {
+    const statusClass = d.status.toLowerCase().split(" ")[0];
+
+    const row = document.createElement("div");
+    row.className = "diagnostic-row";
+
+    row.innerHTML = `
+      <span>${d.name}</span>
+      <span>${d.description}</span>
+      <span class="status ${statusClass}">${d.status}</span>
     `;
+
+    diagnosticsEl.appendChild(row);
   });
+
+  /* ================= LAB RESULTS ================= */
 
   const labs = document.getElementById("labs");
   labs.innerHTML = "";
 
-  [...patient.lab_results, "Urine Test"].forEach(l => {
+  const extendedLabs = [
+    ...j.lab_results,
+    "Urine Test"
+  ];
+
+  extendedLabs.forEach(l => {
     labs.innerHTML += `
       <div class="lab-item">
         <span>${l}</span>
@@ -59,6 +92,8 @@ fetchPatients().then(data => {
     `;
   });
 
-  window.historyData = [...patient.diagnosis_history].reverse();
+  /* ================= CHART DATA ================= */
+
+  window.historyData = [...j.diagnosis_history].reverse();
   renderChart();
 });
